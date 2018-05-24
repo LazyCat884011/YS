@@ -35,12 +35,32 @@ namespace WpfApplication2
         private void SaveBtn_MouseDown(object sender, RoutedEventArgs e)
         {
             List<string> all = new List<string>();
-
-            foreach ( Todod item in TodoList.Children)
+            string data = "";
+            foreach (Todod item in TodoList.Children)
             {
-               
+                data += item.ItemName + "\r\n";
             }
+            // 存檔
+            System.IO.File.WriteAllText(@"C:\temp\data.txt", data);
 
+
+        }
+
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            List<string> all = new List<string>();
+            string data = "";
+            foreach (Todod item in TodoList.Children)
+            {
+                if (item.IsChecked == true)
+                    data += "+";
+                else
+                    data += "-";
+                // 文字
+                data += "|" + item.ItemName + "\r\n";
+            }
+            // 存檔
+            System.IO.File.WriteAllText(@"C:\temp\data.txt", data);
 
         }
     }

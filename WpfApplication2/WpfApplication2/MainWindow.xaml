@@ -20,7 +20,7 @@
     </StackPanel>
     <!-- Button -->
     <StackPanel Grid.Row ="2" Orientation="Horizontal">
-            <Button Width="150" Name="SaveBtn" Click="SaveBtn_Click">Save</Button>
+            <Button Width="150" x:Name="SaveBtn" Click="SaveBtn_Click">Save</Button>
             <Button Width="150">Tasks</Button>
     </StackPanel>
     </Grid>

@@ -20,9 +20,53 @@ namespace WpfApplication2
     /// </summary>
     public partial class Todod : UserControl
     {
+        public string ItemName
+        {
+            get
+            {
+                return ItemNameTb.Text;
+            }
+        }
+
+        public bool IsChecked
+        {
+            set
+            {
+                if (value == true)
+                {
+                    CheckMark.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    CheckMark.Visibility = Visibility.Collapsed;
+                }
+            }
+            get
+            {
+                if (CheckMark.Visibility == Visibility)
+                    return true;
+                else
+                    return false;
+            }
+        }
+
         public Todod()
         {
             InitializeComponent();
         }
+
+        private void CheckBox_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (CheckMark.Visibility == Visibility)
+            {
+                CheckMark.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                CheckMark.Visibility = Visibility.Visible;
+            }
+        }
+       
     }
 }
+
